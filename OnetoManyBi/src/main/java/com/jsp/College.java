@@ -1,0 +1,52 @@
+package com.jsp;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class College {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String collegname;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	private List<Student> std;
+
+	public List<Student> getStd() {
+		return std;
+	}
+
+	public void setStd(List<Student> std) {
+		this.std = std;
+	}
+
+	public String getCollegname() {
+		return collegname;
+	}
+
+	public void setCollegname(String collegname) {
+		this.collegname = collegname;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
+	
+	
+
+}
